@@ -2,6 +2,8 @@ use std::{env, fs, path::Path};
 
 mod file_handler;
 mod file_engine;
+mod command_handler;
+mod command_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -13,6 +15,9 @@ fn main() {
 
     //CWE-22
     let _ = file_handler::process_file_stream();
+
+    //CWE-78
+    let _ = command_handler::process_command_stream();
 }
 
 fn print_help() {
