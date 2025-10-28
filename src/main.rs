@@ -4,6 +4,8 @@ mod file_handler;
 mod file_engine;
 mod command_handler;
 mod command_engine;
+mod sql_handler;
+mod sql_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -18,6 +20,9 @@ fn main() {
 
     //CWE-78
     let _ = command_handler::process_command_stream();
+
+    //CWE-89
+    let _ = sql_handler::process_sql_stream();
 }
 
 fn print_help() {
