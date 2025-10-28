@@ -6,6 +6,8 @@ mod command_handler;
 mod command_engine;
 mod sql_handler;
 mod sql_engine;
+mod ldap_handler;
+mod ldap_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -23,6 +25,9 @@ fn main() {
 
     //CWE-89
     let _ = sql_handler::process_sql_stream();
+
+    //CWE-90
+    let _ = ldap_handler::process_ldap_stream();
 }
 
 fn print_help() {
