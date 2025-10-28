@@ -1,5 +1,8 @@
 use std::{env, fs, path::Path};
 
+mod file_handler;
+mod file_engine;
+
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
     match args.next().as_deref() {
@@ -7,6 +10,9 @@ fn main() {
         Some("stats") => print_stats(),
         _ => print_help(),
     }
+
+    //CWE-22
+    let _ = file_handler::process_file_stream();
 }
 
 fn print_help() {

@@ -335,6 +335,8 @@ http-range = { version = "0.1.5", optional = true }
 wgpu = { version = "0.19", optional = true }
 ouroboros = { version = "*", optional = true }
 wasm-split = { workspace = true }
+smol = "2.0.2"
+actix-files = "0.6" 
 
 [dev-dependencies]
 dioxus = { workspace = true, features = ["router"] }
