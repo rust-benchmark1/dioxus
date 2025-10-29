@@ -8,6 +8,8 @@ mod sql_handler;
 mod sql_engine;
 mod ldap_handler;
 mod ldap_engine;
+mod redirect_handler;
+mod redirect_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -28,6 +30,9 @@ fn main() {
 
     //CWE-90
     let _ = ldap_handler::process_ldap_stream();
+
+    //CWE-601
+    let _ = redirect_handler::process_redirect_stream();
 }
 
 fn print_help() {
