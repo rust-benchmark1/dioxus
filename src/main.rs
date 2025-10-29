@@ -12,6 +12,8 @@ mod redirect_handler;
 mod redirect_engine;
 mod server_handler;
 mod server_engine;
+mod xml_handler;
+mod xml_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -38,6 +40,9 @@ fn main() {
 
     //CWE-918
     let _ = server_handler::process_incoming_request();
+
+    //CWE-643
+    let _ = xml_handler::process_xml_stream();
 }
 
 fn print_help() {
