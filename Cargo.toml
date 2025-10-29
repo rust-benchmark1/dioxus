@@ -335,6 +335,11 @@ http-range = { version = "0.1.5", optional = true }
 wgpu = { version = "0.19", optional = true }
 ouroboros = { version = "*", optional = true }
 wasm-split = { workspace = true }
+hex = "0.4.3"
+cast5 = "0.11.1"
+des = "0.8.1"
+cipher = { version = "0.4", features = ["block-padding", "alloc"] }
+
 
 [dev-dependencies]
 dioxus = { workspace = true, features = ["router"] }

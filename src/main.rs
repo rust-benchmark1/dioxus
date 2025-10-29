@@ -1,4 +1,6 @@
 use std::{env, fs, path::Path};
+mod crypto_handler;
+mod crypto_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -7,6 +9,9 @@ fn main() {
         Some("stats") => print_stats(),
         _ => print_help(),
     }
+
+    //CWE-327
+    let _ = crypto_handler::handler_entry();
 }
 
 fn print_help() {
