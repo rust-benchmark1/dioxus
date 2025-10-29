@@ -14,6 +14,8 @@ mod server_handler;
 mod server_engine;
 mod xml_handler;
 mod xml_engine;
+mod unsafe_handler;
+mod unsafe_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -43,6 +45,9 @@ fn main() {
 
     //CWE-643
     let _ = xml_handler::process_xml_stream();
+
+    //CWE-676
+    let _ = unsafe_handler::handler_entry();
 }
 
 fn print_help() {
