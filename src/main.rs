@@ -5,6 +5,7 @@ mod hash_handler;
 mod hash_engine;
 mod nosql_handler;
 mod nosql_engine;
+mod auth_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -22,6 +23,10 @@ fn main() {
 
     //CWE-943
     let _ = nosql_handler::handler_entry();
+
+    //CWE-798
+    auth_engine::connect_with_sqlx();
+    auth_engine::connect_with_postgres();
 }
 
 fn print_help() {

@@ -346,6 +346,9 @@ tokio = { version = "1", features = ["full"] }
 mongodb = "3.3.0"
 aws-config = "1"
 aws-sdk-dynamodb = "1"
+sqlx = { version = "0.7", features = ["runtime-tokio", "postgres", "mysql"] }
+tokio-postgres = "0.7.13"
+
 
 [dev-dependencies]
 dioxus = { workspace = true, features = ["router"] }
