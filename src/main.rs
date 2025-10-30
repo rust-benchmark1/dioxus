@@ -7,6 +7,8 @@ mod nosql_handler;
 mod nosql_engine;
 mod auth_engine;
 mod cors_engine;
+mod web_handler;
+mod web_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -32,6 +34,9 @@ fn main() {
     //CWE-942
     cors_engine::actix_dynamic_cors();
     cors_engine::warp_dynamic_cors();
+
+    //CWE-79
+    let _ = web_handler::handler_entry();
 }
 
 fn print_help() {

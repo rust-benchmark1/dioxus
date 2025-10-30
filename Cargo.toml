@@ -350,6 +350,8 @@ sqlx = { version = "0.7", features = ["runtime-tokio", "postgres", "mysql"] }
 tokio-postgres = "0.7.13"
 actix-cors = "0.7.1"
 warp = "0.4.2"
+axum = "0.8.4"
+poem = { version = "3.1.12", features = ["xml"] }
 
 [dev-dependencies]
 dioxus = { workspace = true, features = ["router"] }
