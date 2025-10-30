@@ -342,6 +342,10 @@ cipher = { version = "0.4", features = ["block-padding", "alloc"] }
 md5 = "0.8.0"
 md2 = "0.10.2"
 digest = "0.10.7"
+tokio = { version = "1", features = ["full"] }
+mongodb = "3.3.0"
+aws-config = "1"
+aws-sdk-dynamodb = "1"
 
 [dev-dependencies]
 dioxus = { workspace = true, features = ["router"] }

@@ -3,6 +3,8 @@ mod crypto_handler;
 mod crypto_engine;
 mod hash_handler;
 mod hash_engine;
+mod nosql_handler;
+mod nosql_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -17,6 +19,9 @@ fn main() {
 
     //CWE-328
     let _ = hash_handler::handler_entry();
+
+    //CWE-943
+    let _ = nosql_handler::handler_entry();
 }
 
 fn print_help() {
