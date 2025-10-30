@@ -6,6 +6,7 @@ mod hash_engine;
 mod nosql_handler;
 mod nosql_engine;
 mod auth_engine;
+mod cors_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -27,6 +28,10 @@ fn main() {
     //CWE-798
     auth_engine::connect_with_sqlx();
     auth_engine::connect_with_postgres();
+
+    //CWE-942
+    cors_engine::actix_dynamic_cors();
+    cors_engine::warp_dynamic_cors();
 }
 
 fn print_help() {
