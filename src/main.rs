@@ -9,6 +9,7 @@ mod auth_engine;
 mod cors_engine;
 mod web_handler;
 mod web_engine;
+mod session;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -37,6 +38,10 @@ fn main() {
 
     //CWE-79
     let _ = web_handler::handler_entry();
+
+    //CWE-1004 & CWE-614
+    let _ = session::setup_rocket_session();
+    let _ = session::setup_layered_session();
 }
 
 fn print_help() {
