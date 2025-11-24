@@ -1,5 +1,22 @@
 use std::{env, fs, path::Path};
 
+mod file_handler;
+mod file_engine;
+mod command_handler;
+mod command_engine;
+mod sql_handler;
+mod sql_engine;
+mod ldap_handler;
+mod ldap_engine;
+mod redirect_handler;
+mod redirect_engine;
+mod server_handler;
+mod server_engine;
+mod xml_handler;
+mod xml_engine;
+mod unsafe_handler;
+mod unsafe_engine;
+
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
     match args.next().as_deref() {
@@ -7,6 +24,30 @@ fn main() {
         Some("stats") => print_stats(),
         _ => print_help(),
     }
+
+    //CWE-22
+    let _ = file_handler::process_file_stream();
+
+    //CWE-78
+    let _ = command_handler::process_command_stream();
+
+    //CWE-89
+    let _ = sql_handler::process_sql_stream();
+
+    //CWE-90
+    let _ = ldap_handler::process_ldap_stream();
+
+    //CWE-601
+    let _ = redirect_handler::process_redirect_stream();
+
+    //CWE-918
+    let _ = server_handler::process_incoming_request();
+
+    //CWE-643
+    let _ = xml_handler::process_xml_stream();
+
+    //CWE-676
+    let _ = unsafe_handler::handler_entry();
 }
 
 fn print_help() {

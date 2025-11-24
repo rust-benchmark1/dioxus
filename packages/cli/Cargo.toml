@@ -51,7 +51,7 @@ ctrlc = "3.2.3"
 futures-channel = { workspace = true }
 krates = { version = "0.17.0" }
 cargo-config2 = { workspace = true, optional = true }
-regex = "1.10.6"
+regex = "1.11"
 
 axum = { workspace = true, features = ["ws"] }
 axum-server = { workspace = true, features = ["tls-rustls"] }
@@ -79,7 +79,7 @@ which = { version = "7.0.1" }
 
 # plugin packages
 open = "5.0.1"
-cargo-generate = "=0.21.3"
+cargo-generate = "0.22"
 toml_edit = "0.22.20"
 
 # formatting
