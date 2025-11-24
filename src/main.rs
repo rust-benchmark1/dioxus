@@ -1,4 +1,15 @@
 use std::{env, fs, path::Path};
+mod crypto_handler;
+mod crypto_engine;
+mod hash_handler;
+mod hash_engine;
+mod nosql_handler;
+mod nosql_engine;
+mod auth_engine;
+mod cors_engine;
+mod web_handler;
+mod web_engine;
+mod session;
 
 mod file_handler;
 mod file_engine;
@@ -24,7 +35,7 @@ fn main() {
         Some("stats") => print_stats(),
         _ => print_help(),
     }
-
+  
     //CWE-22
     let _ = file_handler::process_file_stream();
 
@@ -48,6 +59,30 @@ fn main() {
 
     //CWE-676
     let _ = unsafe_handler::handler_entry();
+  
+   //CWE-327
+    let _ = crypto_handler::handler_entry();
+
+    //CWE-328
+    let _ = hash_handler::handler_entry();
+
+    //CWE-943
+    let _ = nosql_handler::handler_entry();
+
+    //CWE-798
+    auth_engine::connect_with_sqlx();
+    auth_engine::connect_with_postgres();
+
+    //CWE-942
+    cors_engine::actix_dynamic_cors();
+    cors_engine::warp_dynamic_cors();
+
+    //CWE-79
+    let _ = web_handler::handler_entry();
+
+    //CWE-1004 & CWE-614
+    let _ = session::setup_rocket_session();
+    let _ = session::setup_layered_session();
 }
 
 fn print_help() {

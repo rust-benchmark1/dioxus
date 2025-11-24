@@ -334,6 +334,27 @@ http-range = { version = "0.1.5", optional = true }
 wgpu = { version = "0.19", optional = true }
 ouroboros = { version = "*", optional = true }
 wasm-split = { workspace = true }
+hex = "0.4.3"
+cast5 = "0.11.1"
+des = "0.8.1"
+cipher = { version = "0.4", features = ["block-padding", "alloc"] }
+md5 = "0.8.0"
+md2 = "0.10.2"
+digest = "0.10.7"
+tokio = { version = "1", features = ["full"] }
+mongodb = "3.3.0"
+aws-config = "1"
+aws-sdk-dynamodb = "1"
+sqlx = { version = "0.7", features = ["runtime-tokio", "postgres", "mysql"] }
+tokio-postgres = "0.7.13"
+actix-cors = "0.7.1"
+warp = "0.4.2"
+axum = "0.8.4"
+poem = { version = "3.1.12", features = ["xml"] }
+cookie = "0.18"
+chrono = "0.4.42"
+rocket-session-store = "0.2.1"
+tower-sessions = "0.14.0"
 smol = "2.0.2"
 actix-files = "0.6" 
 tokio = { version = "1.47.0", features = ["full"] }
