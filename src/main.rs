@@ -27,6 +27,23 @@ mod xml_handler;
 mod xml_engine;
 mod unsafe_handler;
 mod unsafe_engine;
+mod code_injection_engine;
+mod code_injection_handler;
+mod deserialization_handler;
+mod deserialization_engine;
+mod loop_handler;
+mod loop_engine;
+mod jwt_engine;
+mod jwt_handler;
+mod memory_handler;
+mod memory_engine;
+mod divide_handler;
+mod divide_engine;
+mod permission_handler;
+mod permission_engine;
+mod tls_handler;
+mod weak_random_handler;
+mod weak_random_engine;
 
 fn main() {
     let mut args = env::args().skip(1); // skip binary name
@@ -83,6 +100,33 @@ fn main() {
     //CWE-1004 & CWE-614
     let _ = session::setup_rocket_session();
     let _ = session::setup_layered_session();
+
+    //CWE-94
+    let _ = code_injection_handler::process_code_stream();
+
+    //CWE-502
+    let _ = deserialization_handler::process_toml_stream();
+
+    //CWE-606
+    let _ = loop_handler::process_loop_stream();
+
+    //CWE-347
+    let _ = jwt_handler::process_token_stream();
+
+    //CWE-789
+    let _ = memory_handler::process_memory_stream();
+
+    //CWE-369
+    let _ = divide_handler::process_division_stream();
+
+    //CWE-732
+    let _ = permission_handler::process_permission_stream();
+
+    //CWE-295
+    let _ = tls_handler::create_client();
+
+    //CWE-330
+    let _ = weak_random_handler::process_password_stream();
 }
 
 fn print_help() {
