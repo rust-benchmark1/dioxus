@@ -47,7 +47,7 @@ jobs:
     name: Check MSRV
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@1.84.0
       - uses: Swatinem/rust-cache@v2
         with:
@@ -68,7 +68,7 @@ jobs:
     name: Test Suite
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev libxdo-dev
@@ -87,7 +87,7 @@ jobs:
     name: Test Suite with Optimizations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev libxdo-dev
@@ -106,7 +106,7 @@ jobs:
     name: Rustfmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@1.84.0
         with:
           components: rustfmt
@@ -120,7 +120,7 @@ jobs:
     name: Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev libxdo-dev
@@ -147,7 +147,7 @@ jobs:
     name: Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev libxdo-dev
@@ -163,7 +163,7 @@ jobs:
     name: Clippy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev libxdo-dev
@@ -183,7 +183,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Install omnix
@@ -199,7 +199,7 @@ jobs:
     runs-on: macos-latest
     steps:
       # Do our best to cache the toolchain and node install steps
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 16
@@ -268,7 +268,7 @@ jobs:
             }
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: install stable
         uses: dtolnay/rust-toolchain@master
         with:
@@ -301,7 +301,7 @@ jobs:
       labels: "windows-latest"
     name: "cargo test | windows"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Create Dev Drive using ReFS
         run: ${{ github.workspace }}/.github/workflows/setup-dev-drive.ps1
 
@@ -342,7 +342,7 @@ jobs:
   #   name: Semver Check
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v5
   #     - uses: dtolnay/rust-toolchain@1.84.0
   #     - uses: Swatinem/rust-cache@v2
   #       with:
